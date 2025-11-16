@@ -5,7 +5,7 @@ run-release:
     cargo run-release
 
 publish commit_msg:
-    git add -e .
+    git add .
     git commit -m "{{commit_msg}}"
     git push
     
