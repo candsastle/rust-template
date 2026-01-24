@@ -26,6 +26,8 @@
         shellHook = ''
           export PATH=$PATH:''${CARGO_HOME:-~/.cargo}/bin
           export PATH=$PATH:''${RUSTUP_HOME:-~/.rustup}/toolchains/$RUSTC_VERSION-x86_64-unknown-linux-gnu/bin/
+          # for some reason rust-analyzer needs to be added manually
+          rustup component add rust-analyzer
         '';
         # Add precompiled library to rustc search path
         RUSTFLAGS = builtins.map (a: ''-L ${a}/lib'') [
