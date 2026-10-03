@@ -1,6 +1,7 @@
 [[language]]
 name = "rust"
 auto-format = true
+formatter = { command = "rustfmt", args = ["--edition", "2024"] }
 
 roots = [
   "Cargo.toml",
@@ -18,6 +19,7 @@ roots = [
 command = "rust-analyzer"
 
 [language-server.rust-analyzer.config]
+check.command = "clippy"
 inlayHints.bindingModeHints.enable = true
 inlayHints.closingBraceHints.minLines = 10
 inlayHints.closureReturnTypeHints.enable = "with_block"
