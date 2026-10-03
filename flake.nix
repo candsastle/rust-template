@@ -35,9 +35,7 @@
       shellHook = ''
         export PATH="$PATH:''${CARGO_HOME:-$HOME/.cargo}/bin"
         export PATH="$PATH:''${RUSTUP_HOME:-$HOME/.rustup}/toolchains/$RUSTC_VERSION-x86_64-unknown-linux-gnu/bin"
-        if ! rustup component list --toolchain "$RUSTC_VERSION" --installed | grep -q '^rust-analyzer-.* (installed)$' \\
-          || ! rustup component list --toolchain "$RUSTC_VERSION" --installed | grep -q '^rustfmt-.* (installed)$' \\
-          || ! rustup component list --toolchain "$RUSTC_VERSION" --installed | grep -q '^clippy-.* (installed)$'; then
+        if ! rustup component list --toolchain "$RUSTC_VERSION" --installed | grep -q '^rust-analyzer-' || ! rustup component list --toolchain "$RUSTC_VERSION" --installed | grep -q '^rustfmt-' || ! rustup component list --toolchain "$RUSTC_VERSION" --installed | grep -q '^clippy-'; then
           rustup component add --toolchain "$RUSTC_VERSION" rust-analyzer rustfmt clippy
         fi
       '';
